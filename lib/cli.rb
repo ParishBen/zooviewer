@@ -13,8 +13,9 @@ class Zooviewer::CLI
         sleep(4)
         puts "\n\n"
     end
+   
     def display_instructions
-        sleep(3)
+        sleep(1.5)
         puts "\n\n"
         puts "Here's our Top 25. Please enter a number to get that Zoo's info or type 'exit' to exit the program"
         
@@ -31,6 +32,7 @@ class Zooviewer::CLI
         puts "#{zoo.name}"
         end
     end
+    
     def get_zoo_choice
         input = gets.strip.downcase
         
@@ -44,34 +46,54 @@ class Zooviewer::CLI
     end
     
     def main_loop
-        loop do 
-            menu
-            input= get_zoo_choice
+        input= nil
+        while input != "exit" do 
+             menu
+             input= get_zoo_choice
               case input
               when "exit"
                  break
+                
               else
               display_zoo_choice(input)
+              
+            
             end
+         end   
         end
-     end
-    def menu 
+      
+      
+    
+     def menu 
         display_zoos
         display_instructions
       end
 
      def display_zoo_choice(i)
         puts Zooviewer::Zoo.individual_zoo_details(i)
-        puts "press any key to continue"
-        gets
+        puts "press enter to return to main menu"
+        gets        
      end
 
      def goodbye
         puts "We hope you enjoy your trip!"
      end
-    end
+     
+    #  def return_or_exit
+    #     puts "Would you like to return to the menu or exit? (Y/N)"
+    #     inp = gets.strip.downcase
+    #     choices = ["yes","y","menu"]
+    #     other_choices = ["no", "n", "exit"]
+    #     return main_loop if choices.include?(inp.downcase) 
+    #     return "2" if other_choices.include?(inp.downcase)
+    #         puts "Sorry I didn't get that"
+    #          return_or_exit
+    #     end
     
-    #Zooviewer::CLI.introduction
+end
+    
+    
+   
     
     
     

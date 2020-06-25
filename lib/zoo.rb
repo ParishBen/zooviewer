@@ -27,7 +27,7 @@ attr_accessor :name, :details, :address
      def self.individual_zoo_details(input)
        zoo= @@all[input]
         <<-DES
-        \n\tZoo Name: #{zoo.name}\n
+        \n\tZoo ##{zoo.name}, is a great choice!\n
         To Visit: #{zoo.address}\n\n
         Fun Facts =>\t #{zoo.details}\n
         DES
