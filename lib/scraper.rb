@@ -1,6 +1,3 @@
-
-
-
 class Zooviewer::Scraper
 
     
@@ -18,28 +15,10 @@ class Zooviewer::Scraper
       end
      end
 
-    Zoo.create_from_scraper(zooarr)
-    
+    Zooviewer::Zoo.create_from_scraper(zooarr)
+
    end
- 
-#    def self.pull_details(i)
-#    zoo_obj= Zoo.all[i]
-#    zoo = zooarr[2]
-#    zoo.name = @name
-#    zoo.details = @details
-#    zoo.address = @address
-
-#    puts zoo.address
-#  end
-
-  def self.get_zoo_details(obj)
-    obj.name = @name
-    obj.details = @details
-    obj.address = @address
   end
-
-
-end
 
 
 

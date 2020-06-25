@@ -1,5 +1,3 @@
-require 'pry'
-
 class Zooviewer::Zoo
     @@all=[]
 attr_accessor :name, :details, :address 
@@ -20,15 +18,22 @@ attr_accessor :name, :details, :address
     def self.create_from_scraper(zooarr)
         zooarr.each do |zoohash|
             self.new(zoohash[:name],zoohash[:details], zoohash[:address])
-            
-        end 
-     end
+            end 
+        end
     
-     def zoo_details
+     
+
+
+     def self.individual_zoo_details(input)
+       zoo= @@all[input]
         <<-DES
-        Zoo Name: #{self.name}
-        To Visit: #{self.address}
-        About: #{self.details}
+        \n\tZoo Name: #{zoo.name}\n
+        To Visit: #{zoo.address}\n\n
+        Fun Facts =>\t #{zoo.details}\n
         DES
+    
      end
+     
+    
+
 end
