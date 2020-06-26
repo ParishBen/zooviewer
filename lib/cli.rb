@@ -15,7 +15,7 @@ class Zooviewer::CLI
     end
    
     def display_instructions
-        sleep(1.5)
+        sleep(0.75)
         puts "\n\n"
         puts "Here's our Top 25. Please enter a number to get that Zoo's info or type 'exit' to exit the program"
         
@@ -46,22 +46,23 @@ class Zooviewer::CLI
     end
     
     def main_loop
-        input= nil
-        while input != "exit" do 
+        
+       
+        loop do
+        
              menu
              input= get_zoo_choice
-              case input
+              case input 
               when "exit"
                  break
-                
-              else
-              display_zoo_choice(input)
-              
-            
+               else display_zoo_choice(input)
+           
+              end
+           
             end
-         end   
-        end
-      
+          end   
+        
+    
       
     
      def menu 
@@ -71,25 +72,33 @@ class Zooviewer::CLI
 
      def display_zoo_choice(i)
         puts Zooviewer::Zoo.individual_zoo_details(i)
-        puts "press enter to return to main menu"
-        gets        
+        return_or_exit
+        # puts "press enter to return to main menu"
+        # gets        
      end
 
      def goodbye
         puts "We hope you enjoy your trip!"
+        exit
      end
      
-    #  def return_or_exit
-    #     puts "Would you like to return to the menu or exit? (Y/N)"
-    #     inp = gets.strip.downcase
-    #     choices = ["yes","y","menu"]
-    #     other_choices = ["no", "n", "exit"]
-    #     return main_loop if choices.include?(inp.downcase) 
-    #     return "2" if other_choices.include?(inp.downcase)
-    #         puts "Sorry I didn't get that"
-    #          return_or_exit
-    #     end
-    
+     def return_or_exit
+        puts "Would you like to return to the menu or exit? (Y/N)"
+        inp = gets.strip.downcase
+        choices = ["yes","y","menu", "home"]
+        other_choices = ["no", "n", "exit"]
+        # return "exit" if other_choices.include?(inp.downcase)
+            return if choices.include?(inp.downcase)
+        if other_choices.include?(inp.downcase)
+            goodbye
+        exit
+        else 
+            puts "Sorry I didn't catch that, try again please"
+            return_or_exit
+            # puts "Sorry I didn't get that"
+            #  return_or_exit
+        end
+    end
 end
     
     
