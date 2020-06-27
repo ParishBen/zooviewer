@@ -1,36 +1,18 @@
 # Zooviewer
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/zooviewer`. To experiment with that code, run `bin/console` for an interactive prompt.
+                   ~Hey there, welcome to Zooviewer~
 
-TODO: Delete this and the text above, and describe your gem
+This gem is directed to the Animal Lovers out there!
 
-## Installation
+Zoos are vital & play a major role in animal conservation efforts globally.
 
-Add this line to your application's Gemfile:
+In addition to conservation, Zoos are great facilitators of protecting many endangered species that often have been harmed by poachers or other existential risks & threats. Unfortunately these are often caused by us humans and the preservation & education at Zoos is always important!
 
-```ruby
-gem 'zooviewer'
-```
+ABOUT: This gem takes from a solid list of 25 Zoos across America that are certainly worthy of visiting on your next day off or planned vacation.
 
-And then execute:
+       It scrapes a list composed by VactaionIdea.com, published earlier in June 2020. It will display the Zoo of your choice & give you Contact Info & Fun Facts of the respective Zoo.  Then you can revisit the list to learn about other great Zoos & exit when you're ready!
 
-    $ bundle install
+                   Enjoy your Zoo!!
 
-Or install it yourself as:
-
-    $ gem install zooviewer
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/zooviewer.
+    
 
