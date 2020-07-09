@@ -14,6 +14,11 @@ class Zooviewer::CLI
         puts "\n\n"
     end
    
+    def change_up
+        introduction
+        get_zoo_data
+        display_zoos
+    end
     def display_instructions
         sleep(0.75)
         puts "\n\n"
@@ -27,10 +32,12 @@ class Zooviewer::CLI
     end
 
     def display_zoos
-        zoos = Zooviewer::Zoo.all
-       zoos.each.with_index(1) do |zoo, i|
-        puts "#{i}. #{zoo.name}"
-        end
+        
+         zoos=Zooviewer::Zoo.all
+        
+       zoos.each_with_index do |zoo, ind|
+        puts "#{ind+1}. #{zoo.name}"
+       end 
     end
     
     def get_zoo_choice

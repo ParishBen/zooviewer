@@ -2,4 +2,4 @@
 require_relative '../lib/environment'
 
 
- Zooviewer::CLI.new.start
+Zooviewer::CLI.new.start

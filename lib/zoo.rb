@@ -8,7 +8,7 @@ attr_accessor :name, :details, :address
     end
     
     def self.all
-        @@all
+         @@all
     end
 
     def save
@@ -21,6 +21,15 @@ attr_accessor :name, :details, :address
             end 
         end
     
+     def self.get_names(a)
+        @@all.map do |zoo|
+       paco = zoo.name.start_with?(a)
+       if paco 
+        puts zoo.name
+            end
+         end
+        end
+         
      
 
 
