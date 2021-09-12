@@ -19,6 +19,7 @@ class Zooviewer::CLI
         get_zoo_data
         display_zoos
     end
+    
     def display_instructions
         sleep(0.75)
         puts "\n\n"
@@ -33,7 +34,7 @@ class Zooviewer::CLI
 
     def display_zoos
         
-         zoos=Zooviewer::Zoo.all
+         zoos = Zooviewer::Zoo.all
         
        zoos.each_with_index do |zoo, ind|
         puts "#{ind+1}. #{zoo.name}"
@@ -80,8 +81,7 @@ class Zooviewer::CLI
      def display_zoo_choice(i)
         puts Zooviewer::Zoo.individual_zoo_details(i)
         return_or_exit
-        # puts "press enter to return to main menu"
-        # gets        
+                
      end
 
      def goodbye
@@ -91,21 +91,17 @@ class Zooviewer::CLI
      
      def return_or_exit
         puts "Would you like to return to the menu or exit? (Y/N)"
-        inp = gets.strip.downcase
-        choices = ["yes","y","menu", "home"]
-        other_choices = ["no", "n", "exit"]
-        # return "exit" if other_choices.include?(inp.downcase)
-            return if choices.include?(inp.downcase)
-        if other_choices.include?(inp.downcase)
-            goodbye
-        
-        else 
+            inp = gets.strip.downcase
+            choices = ["yes","y","menu", "home"]
+            other_choices = ["no", "n", "exit"]
+                return if choices.include?(inp.downcase)
+            if other_choices.include?(inp.downcase)
+               goodbye
+         else 
             puts "Sorry I didn't catch that, try again please"
-            return_or_exit
-            # puts "Sorry I didn't get that"
-            #  return_or_exit
+            return_or_exit    
         end
-    end
+      end
 end
     
     
