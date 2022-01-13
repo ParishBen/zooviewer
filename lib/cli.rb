@@ -43,8 +43,8 @@ class Zooviewer::CLI
     
     def get_zoo_choice
         input = gets.strip.downcase
+          return input.downcase if input.downcase == "exit"
         
-        return input.downcase if input.downcase == "exit"
         if input.to_i.between?(1, Zooviewer::Zoo.all.length)
             return input.to_i - 1
         else
@@ -54,21 +54,18 @@ class Zooviewer::CLI
     end
     
     def main_loop
-        
-       
+ 
         loop do
         
-             menu
-             input= get_zoo_choice
-              case input 
+          menu
+           input= get_zoo_choice
+            case input 
               when "exit"
-                 break
-               else display_zoo_choice(input)
-           
-              end
-           
+                break
+              else display_zoo_choice(input)
             end
-          end   
+        end
+    end   
         
     
       
@@ -93,7 +90,7 @@ class Zooviewer::CLI
         puts "Would you like to return to the menu or exit? (Y/N)"
             inp = gets.strip.downcase
             choices = ["yes","y","menu", "home"]
-            other_choices = ["no", "n", "exit"]
+            other_choices = ["no", "n", "exit", "quit"]
                 return if choices.include?(inp.downcase)
             if other_choices.include?(inp.downcase)
                goodbye

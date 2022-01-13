@@ -8,12 +8,12 @@ class Zooviewer::Scraper
     
     res = Nokogiri::HTML(open(URL))
         res.css("div.slideshow").each do |heading|
-        zoo_name_rank = heading.css("h2").children[1].text.strip
-        rzoo_name_rank = zoo_name_rank.sub(/^Best Zoos in America+\W/, '').strip.sub(/^Best Zoos in the U+\W+S+\W+/, '').sub(/^Top zoos in the US\W/,'').strip
-        
-          heading.css("div.slide-caption").each do |paragraph|
-          zoo_paragraph = paragraph.css("p").first.text.strip
-          zoo_address = paragraph.css("p").css("i").text.strip
+          zoo_name_rank = heading.css("h2").children[1].text.strip  #Scrapes the Zoo Number & Name
+          rzoo_name_rank = zoo_name_rank.sub(/^Best Zoos in America+\W/, '').strip.sub(/^Best Zoos in the U+\W+S+\W+/, '').sub(/^Top zoos in the US\W/,'').strip #Formats to remove excess phrases
+          
+            heading.css("div.slide-caption").each do |paragraph| #continuing onto zoo paragraph's div
+            zoo_paragraph = paragraph.css("p").first.text.strip
+            zoo_address = paragraph.css("p").css("i").text.strip
         zooarr << {name: rzoo_name_rank, details: zoo_paragraph, address: zoo_address} 
         end
        end
