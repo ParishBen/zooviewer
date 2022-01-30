@@ -1,6 +1,6 @@
 class Zooviewer::Zoo
     @@all=[]
-attr_accessor :name, :details, :address 
+  attr_accessor :name, :details, :address 
 
     def initialize(name, details, address)
         @name, @details, @address = name, details, address
@@ -23,7 +23,7 @@ attr_accessor :name, :details, :address
     
      def self.get_names(a)
         inp= a.downcase
-        @@all.each do |zoo|
+         @@all.each do |zoo|
            letter_search = zoo.name.downcase.start_with?(inp)
               if letter_search 
                 puts "#{zoo.name} \n #{zoo.address}  \n  #{zoo.details}"
